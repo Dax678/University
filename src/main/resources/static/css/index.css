@@ -1,0 +1,188 @@
+.layout {
+    width: 85%;
+    height: 150%;
+    position: absolute;
+    left: 15%;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    gap: 15px;
+    height: 100%;
+    width: 30%;
+    background-color: #f5f5f5;
+}
+
+/*Side Bar*/
+
+.img-container {
+    position: relative;
+    width: 100%;
+    height: 19%;
+}
+
+.img-container-profile {
+    border-radius: 50%;
+    width: 45%;
+    position: relative;
+    left: 25%;
+    top: 3%;
+}
+
+.profile-information {
+}
+
+.profile-information-name {
+    position: relative;
+    text-align: center;
+    font-size: 20pt;
+    font-family: lighter, serif;
+    font-weight: lighter;
+}
+
+.profile-information-table {
+    position: relative;
+    font-family: Cambria, serif;
+    padding: 5pt;
+}
+
+.profile-information-table-left {
+    position: relative;
+    padding: 5pt;
+    left: 15pt;
+}
+
+.profile-information-table-right {
+    position: relative;
+    padding: 5pt;
+    left: 45%;
+    font-weight: bold;
+    font-family: "Arial Narrow", serif;
+    font-size: 13pt;
+}
+
+.profile-links {
+    position: relative;
+}
+
+.profile-links-table {
+    position: relative;
+    left: 15pt;
+    font-family: lighter, serif;
+    border-collapse: collapse;
+}
+
+.profile-links-table-left {
+    padding: 7pt;
+    width: 1%;
+}
+
+.profile-links-table-right {
+    padding: 7pt;
+    position: relative;
+    width: 10%;
+ }
+
+.profile-links-table-left-img {
+    border-radius: 50%;
+    position: relative;
+}
+
+/* BODY */
+
+.body {
+    display: inline-block;
+    height: 100%;
+    width: 55%;
+    background-color: #e8dada;
+    margin-right: 0;
+}
+
+.body-banner {
+    border-bottom: 5px solid #f5f5f5;
+}
+
+.body-banner-title {
+    position: relative;
+    font-family: "Agency FB", serif;
+    letter-spacing: 2pt;
+    color: #5d5959;
+    font-weight: lighter;
+    text-align: center;
+    top: 28pt;
+    height: 15pt;
+    font-size: 23pt;
+    margin-right: 30pt;
+}
+
+.body-university-logo {
+    position: relative;
+    border-radius: 20%;
+    width: 15%;
+    left: 83%;
+    top: -15pt;
+}
+
+.body-news {
+    width: 100%;
+    height: 100%;
+}
+
+.body-news-title {
+    position: relative;
+    font-family: "Agency FB", serif;
+    font-weight: lighter;
+    letter-spacing: 2pt;
+    color: #5d5959;
+    text-align: center;
+    top: 28pt;
+    height: 15pt;
+    font-size: 23pt;
+}
+
+.body-banner-hr {
+    position: relative;
+    top: 45pt;
+    width: 80%;
+    background-color: #857f7f;
+}
+
+.body-news-marks {
+    position: relative;
+    width: 100%;
+    height: 20%;
+}
+
+.body-news-marks-title {
+    position: relative;
+    font-family: "Agency FB", serif;
+    font-weight: lighter;
+    letter-spacing: 2pt;
+    color: #5d5959;
+    text-align: left;
+    text-indent: 30pt;
+    top: 40pt;
+    height: 15pt;
+    font-size: 23pt;
+    margin-top: 25pt;
+}
+
+.body-news-messages {
+    width: 100%;
+    height: 20%;
+}
+
+.body-news-marks-title {
+    position: relative;
+    font-family: "Agency FB", serif;
+    font-weight: lighter;
+    letter-spacing: 2pt;
+    color: #5d5959;
+    text-align: left;
+    top: 30pt;
+    height: 15pt;
+    font-size: 23pt;
+    margin-top: 25pt;
+}

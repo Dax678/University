@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>University-main</title>
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../static/assets/fonts/fontawesome-all.min.css" th:href="@{/assets/fonts/fontawesome-all.min.css}">
+    <link rel="stylesheet" href="../static/assets/css/styles.min.css" th:href="@{/assets/css/styles.min.css}">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="./index.html" th:href="@{index.html}"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><img id="logo" class="col-md-12 rounded-circle" src="../static/assets/img/wszib-logo.png" th:src="@{/img/wszib-logo.png}"></span><span id="logo-title" class="col-md-12 col-sm-12">Wyższa Szkoła Zarządzania i Bankowości</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-5">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Account Settings</a></li>
+                </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="color: var(--bs-body-bg);background: #2759a3;">
+                    <h1 class="text-center col-md-12" style="height: 124px;margin: 0px;margin-top: -28px;"><br>Wykaz ocen<br><br></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-start" style="font-size: 30px;margin-top: 20px;margin-bottom: 20px;">Semestr n&nbsp;</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr style="background: #2759a3;">
+                                <th class="col-md-2 text-center" style="color: rgb(255,255,255);">Przedmiot</th>
+                                <th class="col-md-3 text-center" style="color: rgb(255,255,255);">Prowadzący</th>
+                                <th class="col-md-2 text-center" style="color: rgb(255,255,255);">Zaliczenie / Egzamin</th>
+                                <th class="col-md-5 text-center" style="color: rgb(255,255,255);">Oceny</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-top-width: 2px;border-top-style: outset;">
+                                <td style="height: 70px;padding-top: 10px;padding-bottom: 15px;">Grafika i komunikacja człowiek-komputer&nbsp;<em>wyk</em><br></td>
+                                <td style="height: 70px;padding-top: 10px;padding-bottom: 15px;">prof. WSZiB dr hab. Jan Kowalski<br></td>
+                                <td style="text-align: center;height: 70px;padding-top: 10px;padding-bottom: 15px;">5</td>
+                                <td style="height: 70px;padding-top: 10px;padding-bottom: 15px;">5, 5, 5, 5, 5, 5, 5, 5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
