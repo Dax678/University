@@ -41,6 +41,9 @@ public class User_details {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "user_img")
+    private String user_img;
+
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;

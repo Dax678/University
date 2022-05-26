@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/css/**", "/js/**", "/assets/**","/resources/**").permitAll()
                 .antMatchers("/sushi-web/api/**").hasRole(ADMIN.name())
                 .antMatchers("/sushi-web/login",
-                        "/sushi-web/login",
+                        "/sushi-web/",
                         "/sushi-web/library").hasRole(STUDENT.name())
                 .anyRequest()
                 .authenticated()
@@ -63,11 +63,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .deleteCookies("JSESSIONID", "remember-me")
                     .logoutSuccessUrl("/sushi-web/login");
     }
-
-    /*@Bean
-    public AuthenticationSuccessHandler authenticationSuccessHandler() {
-        return new MySimpleUrlAuthenticationSuccessHandler();
-    }*/
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

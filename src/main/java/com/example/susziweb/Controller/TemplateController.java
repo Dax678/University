@@ -38,7 +38,12 @@ public class TemplateController {
         User_details userDetailsByUsername = userService.findUserDetailsByUsername(username);
         model.addAttribute("user_details", userDetailsByUsername);
 
-        model.addAttribute("profileImageName", username + ".jpg");
+        if(userDetailsByUsername.getUser_img() == null) {
+            model.addAttribute("profileImageName",   "default.jpg");
+        } else {
+            model.addAttribute("profileImageName", userDetailsByUsername.getUser_img() + ".jpg");
+        }
+
 
         List<Object[]> userSectionInfo = userService.findUserSectionInfo(
                 userService.findUserByUsername(((UserDetails) SecurityContextHolder
@@ -51,19 +56,5 @@ public class TemplateController {
 
         model.addAttribute("messages", userService.findAddressedToUserMessages(user));
         return "index";
-    }
-
-    @GetMapping("/marks")
-    public String getMarksView(Model model) {
-
-        String username = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
-
-        User_details userDetailsByUsername = userService.findUserDetailsByUsername(username);
-        model.addAttribute("userDetails", userDetailsByUsername);
-
-        /*StudentInfo studentInfo = userService.findStudentInfoByUsername(username);
-        model.addAttribute("studentInfo", studentInfo);*/
-
-        return "marks";
     }
 }

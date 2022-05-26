@@ -25,6 +25,8 @@ public class Course {
     private String description;
     @Column(name = "user_id")
     private Long user_id;
+    @Column(name = "type")
+    private String type;
 
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
@@ -38,12 +40,12 @@ public class Course {
             insertable = false, updatable = false)
     private Time_slot time_slot;
 
-    @ManyToOne(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "course_id", referencedColumnName = "course_id",
-            insertable = false, updatable = false)
-    private Teaches teaches;
+    @OneToMany(mappedBy = "course")
+    private List<Teaches> teaches;
 
     @OneToMany(mappedBy = "courseD")
     private List<Department> departments;
+
+    @OneToMany(mappedBy = "course")
+    private List<Mark> marks;
 }

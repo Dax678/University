@@ -53,16 +53,8 @@ public class User {
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private Takes takes;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private Teaches teaches;
-
-    /*@ManyToOne(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id",
-            insertable = false, updatable = false)
-    private User_message user_message;*/
+    @OneToMany(mappedBy = "user")
+    private List<Teaches> teaches;
 
     @OneToMany(mappedBy = "users")
     private List<User_message> user_messages;
