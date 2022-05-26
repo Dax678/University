@@ -1,10 +1,10 @@
 package com.example.susziweb.Service;
 
 import com.example.susziweb.Repository.UserRepository;
-import com.example.susziweb.db.Entity.Message;
 import com.example.susziweb.db.LoggedUser;
 import com.example.susziweb.db.Entity.User;
 import com.example.susziweb.db.Entity.User_details;
+import com.example.susziweb.db.View.UserMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,8 +45,7 @@ public class UserService {
         return userRepository.findUserSectionInfo(user);
     }
 
-    public List<Message> findAddressedToUserMessages(User user) {
-        List<Message> mess = userRepository.findAddressedToUserMessages(user);
-        return mess;
+    public List<Object[]> findUserMessages(User user) {
+        return userRepository.findUserMessages(user);
     }
 }

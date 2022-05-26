@@ -54,7 +54,9 @@ public class TemplateController {
         );
         model.addAttribute("user_section_info", Arrays.stream(userSectionInfo.get(0)).toArray());
 
-        model.addAttribute("messages", userService.findAddressedToUserMessages(user));
+        model.addAttribute("user_messages", userService.findUserMessages(user));
+
+        /*model.addAttribute("messages", userService.findAddressedToUserMessages(user));*/
         return "index";
     }
 }

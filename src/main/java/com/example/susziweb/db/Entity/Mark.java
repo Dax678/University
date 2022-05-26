@@ -20,6 +20,9 @@ public class Mark {
     @Column(name = "course_id")
     private Long course_id;
 
+    @Column(name = "mark")
+    private double mark;
+
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id",

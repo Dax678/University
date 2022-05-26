@@ -171,6 +171,9 @@
                             <h1 class="text-end" style="font-size: 21px;border-right-style: solid;line-height: 24.2px;letter-spacing: 4px;font-style: italic;padding-right: 10pt;">Aktualne wiadomości (0/0/0)</h1>
                         </div>
                         <div class="col-md-12">
+                            <th:block th:if="${user_messages.isEmpty()}">
+                                <h3>Brak Wiadomości</h3>
+                            </th:block>
                             <div class="table-responsive" th:each="message : ${messages}">
                                 <table class="table" style="background-color: #ffffff;">
                                     <thead>
@@ -179,29 +182,37 @@
                                     <tbody>
                                         <tr style="border-top-width: 3px;border-top-style: solid;border-radius: 0px;">
                                             <td style="border-left-width: 5px;border-left-color: var(--bs-table-striped-color);">
+                                                <th:block th:each="message : ${user_messages}">
                                                 <div class="table-responsive">
                                                     <table class="table">
                                                         <thead style="border-left-style: solid;">
                                                             <tr>
                                                                 <th>
-                                                                    <div class="col-md-12"><span>Od:</span><span style="margin-left: 15px;">FROM INFO</span></div>
-                                                                    <div class="col-md-12"><span>Do:</span><span style="margin-left: 15px;">ADDRESSED INFO</span></div>
+                                                                    <div class="col-md-12">
+                                                                        <span>Od:</span>
+                                                                        <span style="margin-left: 15px;" th:text="${message[0]}">FROM INFO</span>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <span>Do:</span>
+                                                                        <span style="margin-left: 15px;" th:text="${message[1]}">ADDRESSED INFO</span>
+                                                                    </div>
                                                                 </th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td class="fw-bolder" th:text="${message.title}" style="background-color: #2759a3; color: white">TITLE</td>
+                                                                <td class="fw-bolder" th:text="${message[2]}" style="background-color: #2759a3; color: white">TITLE</td>
                                                             </tr>
                                                             <tr>
-                                                                <td style="font-size: 14px; background-color: #4b85d9; color: white" th:text="${message.body}">MESSAGE TEXT&nbsp;</td>
+                                                                <td style="font-size: 14px; background-color: #4b85d9; color: white" th:text="${message[3]}">MESSAGE TEXT&nbsp;</td>
                                                             </tr>
                                                             <tr>
-                                                                <td style="font-size: 12px; background-color: #6a9fec; color: white">DATE</td>
+                                                                <td style="font-size: 12px; background-color: #6a9fec; color: white" th:text="${message[4]}">DATE</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
+                                                </th:block>
                                             </td>
                                         </tr>
                                     </tbody>

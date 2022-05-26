@@ -49,12 +49,19 @@
                                 <th class="col-md-5 text-center" style="color: rgb(255,255,255);">Oceny</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr style="border-top-width: 2px;border-top-style: outset;">
-                                <td style="height: 70px;padding-top: 10px;padding-bottom: 15px;">Grafika i komunikacja człowiek-komputer&nbsp;<em>wyk</em><br></td>
-                                <td style="height: 70px;padding-top: 10px;padding-bottom: 15px;">prof. WSZiB dr hab. Jan Kowalski<br></td>
-                                <td style="text-align: center;height: 70px;padding-top: 10px;padding-bottom: 15px;">5</td>
-                                <td style="height: 70px;padding-top: 10px;padding-bottom: 15px;">5, 5, 5, 5, 5, 5, 5, 5</td>
+                        <tbody th:each="mark : ${listOfMarks}">
+                            <tr style="border-top-width: 2px;border-top-style: outset;" class="text-center">
+                                <td style="height: 70px;padding-top: 10px;padding-bottom: 15px;" th:text="${mark[0] + ', ' + mark[1]}">Grafika i komunikacja człowiek-komputer&nbsp;<em>wyk</em><br></td>
+                                <td style="height: 70px;padding-top: 10px;padding-bottom: 15px;" th:text="${mark[2].name + ' ' + mark[2].surname}">prof. WSZiB dr hab. Jan Kowalski<br></td>
+                                <td style="text-align: center;height: 70px;padding-top: 10px;padding-bottom: 15px; font-size: 15pt">5</td>
+                                <td style="height: 70px;padding-top: 10px;padding-bottom: 15px;">
+                                    <div class="row">
+                                        <div class="col-md-3" style="border: 2px solid #1c3598">
+                                            <p style="font-size: 15pt">5</p>
+                                            <span>data</span>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
