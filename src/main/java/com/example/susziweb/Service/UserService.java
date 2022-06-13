@@ -1,7 +1,7 @@
 package com.example.susziweb.Service;
 
+import com.example.susziweb.Repository.MessageRepository;
 import com.example.susziweb.Repository.UserRepository;
-import com.example.susziweb.db.LoggedUser;
 import com.example.susziweb.db.Entity.User;
 import com.example.susziweb.db.Entity.User_details;
 import com.example.susziweb.db.View.UserMessage;
@@ -13,12 +13,12 @@ import java.util.List;
 @Service
 public class UserService {
     private final UserRepository userRepository;
-    private LoggedUser loggedUser;
+    private final MessageRepository messageRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository, LoggedUser loggedUser) {
+    public UserService(UserRepository userRepository, MessageRepository messageRepository) {
         this.userRepository = userRepository;
-        this.loggedUser = loggedUser;
+        this.messageRepository = messageRepository;
     }
 
     public Iterable<User> findAllUsers() {
@@ -45,7 +45,7 @@ public class UserService {
         return userRepository.findUserSectionInfo(user);
     }
 
-    public List<Object[]> findUserMessages(User user) {
-        return userRepository.findUserMessages(user);
-    }
+    /*public List<UserMessage> findUserMessages(User user) {
+        return messageRepository.findUserMessages(user);
+    }*/
 }

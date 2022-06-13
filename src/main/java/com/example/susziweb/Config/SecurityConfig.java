@@ -49,11 +49,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .defaultSuccessUrl("/sushi-web", true)
                     .passwordParameter("login-password") //DEFAULT password
                     .usernameParameter("login-username") //DEFAULT username
-                .and()
+                /*.and()
                 .rememberMe() // 2 weeks
                     .tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(21)) // 21 days - 3 weeks
                     .key("somethinkVerySecurited")
-                    .rememberMeParameter("remember-me") //DEFAULT
+                    .rememberMeParameter("remember-me") //DEFAULT*/
                 .and()
                 .logout()
                     .logoutUrl("/sushi-web/logout")

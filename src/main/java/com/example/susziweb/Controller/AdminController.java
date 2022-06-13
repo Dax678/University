@@ -20,13 +20,11 @@ import java.util.List;
 public class AdminController {
     private final UserService userService;
     private final MarkService markService;
-    private final LoggedUser loggedUser;
 
     @Autowired
-    public AdminController(UserService userService, MarkService markService, LoggedUser loggedUser) {
+    public AdminController(UserService userService, MarkService markService) {
         this.userService = userService;
         this.markService = markService;
-        this.loggedUser = loggedUser;
     }
 
     @GetMapping("/getAllUsers")
@@ -49,9 +47,8 @@ public class AdminController {
         return markService.findUserMarks(userService.findUserByUsername(username));
     }
 
-    @GetMapping("/getUserMessages/{username}")
-    public List<Object[]> getUserMessages(@PathVariable(name = "username") String username) {
+    /*@GetMapping("/getUserMessages/{username}")
+    public List<UserMessage> getUserMessages(@PathVariable(name = "username") String username) {
         return userService.findUserMessages(userService.findUserByUsername(username));
-    }
-
+    }*/
 }

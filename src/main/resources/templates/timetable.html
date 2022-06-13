@@ -12,13 +12,13 @@
 
 <body>
     <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><img id="logo" class="col-md-12 rounded-circle" src="../static/assets/img/wszib-logo.png" th:src="@{/img/wszib-logo.png}"></span><span id="logo-title" class="col-md-12 col-sm-12">Wyższa Szkoła Zarządzania i Bankowości</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><img id="logo" class="col-md-12 rounded-circle" src="../static/assets/img/logo.jpg" th:src="@{/img/logo.jpg}"></span><span id="logo-title" class="col-md-12 col-sm-12">Wyższa Szkoła Zarządzania i Bankowości</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-5">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="#" th:href="@{/sushi-web}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Account Settings</a></li>
-                </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Logout</a>
+                </ul><a class="btn btn-primary ms-md-2" role="button" href="#" th:href="@{/sushi-web/logout}">Logout</a>
             </div>
         </div>
     </nav>

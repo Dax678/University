@@ -53,9 +53,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
                     "WHERE us.login = :#{#user.login}"
     )
     List<Object[]> findUserSectionInfo(@Param("user") User user);
-
-    @Query(value = "SELECT usm.sender, usm.receiver_name, usm.message_title, usm.body, usm.send_date " +
-            "FROM UserMessage usm " +
-            "WHERE usm.receiver_id = :#{#user.id}")
-    List<Object[]> findUserMessages(@Param("user") User user);
 }
