@@ -1,7 +1,6 @@
 package com.example.susziweb.Controller;
 
 import com.example.susziweb.Service.UserService;
-import com.example.susziweb.db.Entity.Section;
 import com.example.susziweb.db.Entity.User;
 import com.example.susziweb.db.Entity.User_details;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +16,11 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/sushi-web")
-public class TemplateController {
+public class IndexController {
     private final UserService userService;
 
     @Autowired
-    public TemplateController(UserService userService) {
+    public IndexController(UserService userService) {
         this.userService = userService;
     }
 
@@ -35,15 +34,9 @@ public class TemplateController {
         String username = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
         User user = userService.findUserByUsername(username);
 
+        //UserDetails - album, year, picture, etc.
         User_details userDetailsByUsername = userService.findUserDetailsByUsername(username);
         model.addAttribute("user_details", userDetailsByUsername);
-
-        if(userDetailsByUsername.getUser_img() == null) {
-            model.addAttribute("profileImageName",   "default.jpg");
-        } else {
-            model.addAttribute("profileImageName", userDetailsByUsername.getUser_img() + ".jpg");
-        }
-
 
         List<Object[]> userSectionInfo = userService.findUserSectionInfo(
                 userService.findUserByUsername(((UserDetails) SecurityContextHolder

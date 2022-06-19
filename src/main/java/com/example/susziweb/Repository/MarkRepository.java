@@ -1,5 +1,6 @@
 package com.example.susziweb.Repository;
 
+import com.example.susziweb.db.Entity.Course;
 import com.example.susziweb.db.Entity.Mark;
 import com.example.susziweb.db.Entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -32,4 +33,17 @@ public interface MarkRepository extends JpaRepository<Mark, Long> {
                     "GROUP BY co.name, co.type, teacher_name"
     )
     List<Object[]> findUserMarks(@Param("user") User user);
+
+    @Query(
+            value = "SELECT ma " +
+                    "FROM User us " +
+                    "JOIN Takes ta " +
+                    "ON us.id=ta.id " +
+                    "JOIN Mark ma " +
+                    "ON ma.user_id=ta.id " +
+                    "JOIN Course co " +
+                    "ON ma.course_id=co.id " +
+                    "WHERE us.id= :#{#user.id} AND co.id= :#{#course.id}"
+    )
+    List<Mark> findMarksById(@Param("user") User user, @Param("course") Course course);
 }

@@ -4,6 +4,7 @@ package com.example.susziweb.Controller;
 import com.example.susziweb.Service.MarkService;
 import com.example.susziweb.Service.TeachesService;
 import com.example.susziweb.Service.UserService;
+import com.example.susziweb.db.Entity.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -29,11 +30,11 @@ public class MarkController {
     @GetMapping
     public String getView(Model model) {
         String username = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+        User user = userService.findUserByUsername(username);
 
-        //List of: subject, teacher, test, marks
-        List<Object[]> marks = markService.findUserMarks(userService.findUserByUsername(username));
-
-        model.addAttribute("listOfMarks", marks);
+        //List of: subject, teacher
+        List<Object[]> subjectInformations = markService.findUserMarks(userService.findUserByUsername(username));
+        model.addAttribute("listOfSubAndTeachers", subjectInformations);
 
         return "marks";
     }

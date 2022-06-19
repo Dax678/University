@@ -44,8 +44,4 @@ public class UserService {
     public List<Object[]> findUserSectionInfo(User user) {
         return userRepository.findUserSectionInfo(user);
     }
-
-    /*public List<UserMessage> findUserMessages(User user) {
-        return messageRepository.findUserMessages(user);
-    }*/
 }
