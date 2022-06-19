@@ -44,6 +44,7 @@ public class User_details {
     @Column(name = "user_img")
     private String user_img;
 
+    //Adding relation to table: user
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;

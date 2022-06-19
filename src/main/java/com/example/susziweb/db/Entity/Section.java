@@ -25,17 +25,20 @@ public class Section {
     @Column(name = "room_no")
     private String room_no;
 
+    //Adding relation to table: takes
     @OneToOne(mappedBy = "section", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "class_num", referencedColumnName = "class_num")
     private Takes takes;
 
+    //Adding relation to table: section_course
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "class_num", referencedColumnName = "class_num",
             insertable = false, updatable = false)
     private Section_course section_course;
 
+    //Adding relation to table: time_slot
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "class_num", referencedColumnName = "class_num",

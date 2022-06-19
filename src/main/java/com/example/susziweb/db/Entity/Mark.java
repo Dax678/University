@@ -23,12 +23,14 @@ public class Mark {
     @Column(name = "mark")
     private double mark;
 
+    //Adding relation to table: takes
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id",
             insertable = false, updatable = false)
     private Takes takes;
 
+    //Adding relation to table: course
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "course_id", referencedColumnName = "course_id",

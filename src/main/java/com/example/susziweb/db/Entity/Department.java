@@ -21,6 +21,7 @@ public class Department {
     @Column(name = "budget")
     private int budget;
 
+    //Adding relation to table: course
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "dept_name", referencedColumnName = "dept_name", insertable = false, updatable = false)

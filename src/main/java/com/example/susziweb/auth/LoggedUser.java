@@ -1,4 +1,4 @@
-package com.example.susziweb.db;
+package com.example.susziweb.auth;
 
 import org.springframework.stereotype.Component;
 

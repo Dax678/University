@@ -25,18 +25,21 @@ public class Teaches {
     @Column(name = "salary_id")
     private Long salary_id;
 
+    //Adding relation to table: user
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id",
             insertable = false, updatable = false)
     private User user;
 
+    //Adding relation to table: course
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "course_id", referencedColumnName = "course_id",
             insertable = false, updatable = false)
     private Course course;
 
+    //Adding relation to table: salary
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "salary_id", referencedColumnName = "salary_id", insertable = false, updatable = false)

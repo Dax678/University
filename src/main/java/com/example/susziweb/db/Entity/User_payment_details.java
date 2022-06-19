@@ -19,6 +19,7 @@ public class User_payment_details {
     @Column(name = "acc_num")
     private String acc_num;
 
+    //Adding relation to table: user
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;

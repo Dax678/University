@@ -29,7 +29,10 @@ public class MarkController {
 
     @GetMapping
     public String getView(Model model) {
+        //Getting session username
         String username = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+
+        //Getting Class of User
         User user = userService.findUserByUsername(username);
 
         //List of: subject, teacher

@@ -39,12 +39,6 @@ public class Message {
     @Column(name = "message_title")
     private String title;
 
-    /*@ManyToOne(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "message_id", referencedColumnName = "message_id",
-            insertable = false, updatable = false)
-    private User_message user_message;*/
-
     @OneToMany(mappedBy = "messages")
     private List<User_message> user_messages;
 }

@@ -24,10 +24,12 @@ public class Takes {
     @Column(name = "field_of_study")
     private String field_of_study;
 
+    //Adding relation to table: user
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 
+    //Adding relation to table: section
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "class_num")
     private Section section;

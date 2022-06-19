@@ -24,18 +24,14 @@ public class User_message {
     @Column(name = "message_id")
     private Long message_id;
 
-    /*@OneToMany(mappedBy = "user_message")
-    private List<User> users;*/
-
-   /* @OneToMany(mappedBy = "user_message")
-    private List<Message> messages;*/
-
+    //Adding relation to table: users
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id",
             insertable = false, updatable = false)
     private User users;
 
+    //Adding relation to table: messages
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "message_id", referencedColumnName = "message_id",

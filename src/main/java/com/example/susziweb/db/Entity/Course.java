@@ -17,23 +17,30 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "course_id")
     private Long id;
+
     @Column(name = "name")
     private String name;
+
     @Column(name = "dept_name")
     private String dept_name;
+
     @Column(name = "description")
     private String description;
+
     @Column(name = "user_id")
     private Long user_id;
+
     @Column(name = "type")
     private String type;
 
+    //Adding relation to table: section_course
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "course_id", referencedColumnName = "course_id",
             insertable = false, updatable = false)
     private Section_course section_course;
 
+    //Adding relation to table: time_slot
     @ManyToOne(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "course_id", referencedColumnName = "course_id",

@@ -31,13 +31,17 @@ public class IndexController {
 
     @GetMapping
     public String getMainView(Model model) {
+        //Getting session username
         String username = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
+
+        //Getting Class of User
         User user = userService.findUserByUsername(username);
 
-        //UserDetails - album, year, picture, etc.
+        //UserDetails - Name, Surname, picture, etc.
         User_details userDetailsByUsername = userService.findUserDetailsByUsername(username);
         model.addAttribute("user_details", userDetailsByUsername);
 
+        //Getting album number, year, etc.
         List<Object[]> userSectionInfo = userService.findUserSectionInfo(
                 userService.findUserByUsername(((UserDetails) SecurityContextHolder
                         .getContext()
@@ -47,9 +51,6 @@ public class IndexController {
         );
         model.addAttribute("user_section_info", Arrays.stream(userSectionInfo.get(0)).toArray());
 
-        /*model.addAttribute("user_messages", userService.findUserMessages(user));*/
-
-        /*model.addAttribute("messages", userService.findAddressedToUserMessages(user));*/
         return "index";
     }
 }

@@ -12,6 +12,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findUserByLogin(String login);
 
+    //Getting objects of User_details class
     @Query(
             value = "SELECT usf " +
             "FROM User us " +
@@ -21,6 +22,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     )
     User_details findUserDetailsByUsername(@Param("user") User user);
 
+    //Getting objects: user.login, user.role_full_name
     @Query(
             value = "SELECT us.login, ro.role_full_name " +
                     "FROM User us " +
@@ -30,6 +32,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     )
     List<Object[]> findAllUsersWithRole();
 
+    //Getting user role -> used in mostly FakeApplicationUserDaoService
     @Query(
             value = "SELECT ro.role_full_name " +
                     "FROM User us " +
@@ -39,6 +42,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     )
     String findUserRole(@Param("user") User user);
 
+    //Getting objects: takes.album_num, takes.field_of_study, course.dept_name, section.year, section.semester
     @Query(
             value = "SELECT ta.album_num, ta.field_of_study, co.dept_name, se.year, se.semester " +
                     "FROM User us " +

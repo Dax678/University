@@ -2,9 +2,7 @@ package com.example.susziweb.Controller;
 
 import com.example.susziweb.Service.MarkService;
 import com.example.susziweb.Service.UserService;
-import com.example.susziweb.db.LoggedUser;
 import com.example.susziweb.db.Entity.User;
-import com.example.susziweb.db.View.UserMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -46,9 +44,4 @@ public class AdminController {
     public List<Object[]> getUserMarks(@PathVariable(name = "username") String username) {
         return markService.findUserMarks(userService.findUserByUsername(username));
     }
-
-    /*@GetMapping("/getUserMessages/{username}")
-    public List<UserMessage> getUserMessages(@PathVariable(name = "username") String username) {
-        return userService.findUserMessages(userService.findUserByUsername(username));
-    }*/
 }

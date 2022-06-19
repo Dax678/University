@@ -10,6 +10,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface MarkRepository extends JpaRepository<Mark, Long> {
+
+    //Getting objects: course.name, course.type, teacher_name
     @Query(
             value = "SELECT co.name, co.type, ( " +
                     "SELECT usd_ins " +
@@ -34,6 +36,7 @@ public interface MarkRepository extends JpaRepository<Mark, Long> {
     )
     List<Object[]> findUserMarks(@Param("user") User user);
 
+    //Getting objects of Mark class
     @Query(
             value = "SELECT ma " +
                     "FROM User us " +
