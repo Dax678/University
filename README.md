@@ -8,8 +8,8 @@
   <img src="src/main/resources/screenshots/Diagrams/login.PNG">
 <h3> Main Page: </h3>
   <img src="src/main/resources/screenshots/Diagrams/index.PNG">
-<h3> Main Page: </h3>
-  <img src="src/main/resources/screenshots/Diagrams/index.PNG">
+<h3> Marks: </h3>
+  <img src="src/main/resources/screenshots/Diagrams/marks.PNG">
 <h3> Payments: </h3>
   <img src="src/main/resources/screenshots/Diagrams/payments.PNG">
 <h3> Library: </h3>
