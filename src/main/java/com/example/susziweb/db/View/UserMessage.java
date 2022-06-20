@@ -12,14 +12,14 @@ import java.util.Date;
 @Getter
 @Setter
 @RequiredArgsConstructor
-@Table(name = "user_messages_with_info")
+@Table(name = "user_message_with_informations")
 public class UserMessage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "receiver_id")
-    private Long receiver_id;
+    @Column(name = "message_id")
+    private Long id;
 
-    @Column(name = "receiver_name")
+    @Column(name = "username")
     private String receiver_name;
 
     @Column(name = "message_title")
@@ -31,6 +31,9 @@ public class UserMessage {
     @Column(name = "send_date")
     private Date send_date;
 
-    @Column(name = "sender")
-    private String sender;
+    @Column(name = "read_date")
+    private Date read_date;
+
+    @Column(name = "sender_username")
+    private String sender_name;
 }

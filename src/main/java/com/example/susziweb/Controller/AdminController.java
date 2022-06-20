@@ -1,8 +1,10 @@
 package com.example.susziweb.Controller;
 
 import com.example.susziweb.Service.MarkService;
+import com.example.susziweb.Service.MessageService;
 import com.example.susziweb.Service.UserService;
 import com.example.susziweb.db.Entity.User;
+import com.example.susziweb.db.View.UserMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,11 +20,13 @@ import java.util.List;
 public class AdminController {
     private final UserService userService;
     private final MarkService markService;
+    private final MessageService messageService;
 
     @Autowired
-    public AdminController(UserService userService, MarkService markService) {
+    public AdminController(UserService userService, MarkService markService, MessageService messageService) {
         this.userService = userService;
         this.markService = markService;
+        this.messageService = messageService;
     }
 
     @GetMapping("/getAllUsers")
@@ -43,5 +47,15 @@ public class AdminController {
     @GetMapping("/getUserMarks/{username}")
     public List<Object[]> getUserMarks(@PathVariable(name = "username") String username) {
         return markService.findUserMarks(userService.findUserByUsername(username));
+    }
+
+    @GetMapping("/getUserMessages/{username}")
+    public List<UserMessage> getUserMessages(@PathVariable(name = "username") String username) {
+        return messageService.findUserMessageByReceiver_name(userService.findUserByUsername(username));
+    }
+
+    @GetMapping("/getUserMessages")
+    public List<UserMessage> getAllMessages() {
+        return messageService.findAllMessages();
     }
 }

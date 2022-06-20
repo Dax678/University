@@ -92,7 +92,7 @@
                                     <td style="border-bottom-style: none;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-table" id="link-icons">
                                             <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
                                         </svg></td>
-                                    <td style="border-bottom-style: none;"><a href="library.html" th:href="@{sushi-web/last-courses}" style="color: white; text-decoration: none" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'">Zajęcia z poprzednich semestrów</a><br></td>
+                                    <td style="border-bottom-style: none;">Zajęcia z poprzednich semestrów<br></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -111,7 +111,7 @@
                                 </tr>
                                 <tr style="border-style: none;">
                                     <td style="border-style: none;"><i class="fas fa-money-check-alt" id="link-icons"></i></td>
-                                    <td style="border-style: none;">Stypendia</td>
+                                    <td style="border-style: none;"><a href="library.html" th:href="@{sushi-web/scholarship}" style="color: white; text-decoration: none" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'">Stypendia</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -131,7 +131,7 @@
                                 </tr>
                                 <tr style="border-style: none;">
                                     <td style="border-style: none;"><i class="fas fa-comments" id="link-icons"></i></td>
-                                    <td style="border-style: none;">Archiwum wiadomości</td>
+                                    <td style="border-style: none;"><a href="library.html" th:href="@{sushi-web/message-archive}" style="color: white; text-decoration: none" onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'">Archiwum wiadomości</a></td>
                                 </tr>
                                 <tr>
                                     <td style="border-bottom-style: none;"><i class="fas fa-comment-dots" id="link-icons"></i></td>
@@ -178,37 +178,37 @@
                                     <tbody>
                                         <tr style="border-top-width: 3px;border-top-style: solid;border-radius: 0px;">
                                             <td style="border-left-width: 5px;border-left-color: var(--bs-table-striped-color);">
-                                                <!--<th:block th:each="">-->
-                                                <div class="table-responsive">
-                                                    <table class="table">
-                                                        <thead style="border-left-style: solid;">
-                                                            <tr>
-                                                                <th>
-                                                                    <div class="col-md-12">
-                                                                        <span>Od:</span>
-                                                                        <span style="margin-left: 15px;">FROM INFO</span>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <span>Do:</span>
-                                                                        <span style="margin-left: 15px;">ADDRESSED INFO</span>
-                                                                    </div>
-                                                                </th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="fw-bolder" style="background-color: #2759a3; color: white">TITLE</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td style="font-size: 14px; background-color: #4b85d9; color: white">MESSAGE TEXT&nbsp;</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td style="font-size: 12px; background-color: #6a9fec; color: white">DATE</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <!--</th:block>-->
+                                                <th:block>
+                                                    <div class="table-responsive" th:each="message : ${messages}">
+                                                        <table class="table">
+                                                            <thead style="border-left-style: solid;">
+                                                                <tr>
+                                                                    <th>
+                                                                        <div class="col-md-12">
+                                                                            <span>Od:</span>
+                                                                            <span style="margin-left: 15px;" th:text="${message.sender_name}">FROM INFO</span>
+                                                                        </div>
+                                                                        <div class="col-md-12">
+                                                                            <span>Do:</span>
+                                                                            <span style="margin-left: 15px;" th:text="${message.receiver_name}">ADDRESSED INFO</span>
+                                                                        </div>
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="fw-bolder" style="background-color: #2759a3; color: white" th:text="${message.message_title}">TITLE</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size: 14px; background-color: #4b85d9; color: white" th:text="${message.body}">MESSAGE TEXT&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size: 12px; background-color: #6a9fec; color: white" th:text="${message.send_date}">DATE</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </th:block>
                                             </td>
                                         </tr>
                                     </tbody>
