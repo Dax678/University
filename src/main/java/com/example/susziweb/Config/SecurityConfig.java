@@ -39,7 +39,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/sushi-web/api/**").hasRole(ADMIN.name())
                 .antMatchers("/sushi-web/login",
                         "/sushi-web/",
-                        "/sushi-web/library").hasRole(STUDENT.name())
+                        "/sushi-web/library",
+                        "/sushi-web/settings",
+                        "/sushi-web/contact").hasRole(STUDENT.name())
                 .anyRequest()
                 .authenticated()
                 .and()

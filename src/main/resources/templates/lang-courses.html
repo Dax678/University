@@ -41,20 +41,16 @@
                     <table class="table">
                         <thead>
                             <tr style="background: #2759a3;">
-                                <th class="col-md-4 text-center" style="color: rgb(255,255,255);">Lektor</th>
-                                <th class="col-md-2 text-center" style="color: rgb(255,255,255);">Sala</th>
-                                <th class="col-md-2 text-center" style="color: rgb(255,255,255);">Dzień</th>
-                                <th class="col-md-2 text-center" style="color: rgb(255,255,255);">Godzina</th>
+                                <th class="col-md-3 text-center" style="color: rgb(255,255,255);">Lektor</th>
+                                <th class="col-md-2 text-center" style="color: rgb(255,255,255);">Nazwa kursu</th>
                                 <th class="col-md-2 text-center" style="color: rgb(255,255,255);">Poziom</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody th:each="lang : ${langteaches}">
                             <tr style="border-top-width: 2px;border-top-style: outset;">
-                                <td style="height: 70px;padding-top: 10px;padding-bottom: 15px;text-align: center;">mgr. Jan Kowalski</td>
-                                <td style="height: 70px;padding-top: 10px;padding-bottom: 15px;text-align: center;">5K<br></td>
-                                <td style="text-align: center;height: 70px;padding-top: 10px;padding-bottom: 15px;">piątek</td>
-                                <td style="height: 70px;padding-top: 10px;padding-bottom: 15px;text-align: center;">08:00-09:30<br></td>
-                                <td style="text-align: center;">B1</td>
+                                <td style="height: 70px;padding-top: 10px;padding-bottom: 15px;text-align: center;" th:text="${lang[0] + ' ' + lang[1]}">mgr. Jan Kowalski</td>
+                                <td style="text-align: center;" th:text="${lang[2]}">...</td>
+                                <td style="text-align: center;" th:text="${lang[3]}">B1</td>
                             </tr>
                         </tbody>
                     </table>

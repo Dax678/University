@@ -27,9 +27,6 @@ public class Course {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "user_id")
-    private Long user_id;
-
     @Column(name = "type")
     private String type;
 
@@ -46,6 +43,12 @@ public class Course {
     @JoinColumn(name = "course_id", referencedColumnName = "course_id",
             insertable = false, updatable = false)
     private Time_slot time_slot;
+
+    @ManyToOne(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "course_id", referencedColumnName = "course_id",
+            insertable = false, updatable = false)
+    private Course_details course_details;
 
     @OneToMany(mappedBy = "course")
     private List<Teaches> teaches;
