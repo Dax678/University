@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>University-main</title>
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../static/assets/fonts/fontawesome-all.min.css" th:href="@{/assets/fonts/fontawesome-all.min.css}">
+    <link rel="stylesheet" href="../static/assets/css/styles.min.css" th:href="@{/assets/css/styles.min.css}">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="./index.html" th:href="@{index.html}"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><img id="logo" class="col-md-12 rounded-circle" src="../static/assets/img/logo.jpg" th:src="@{/img/logo.jpg}"></span><span id="logo-title" class="col-md-12 col-sm-12">Wyższa Szkoła Zarządzania i Bankowości</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-5">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#" th:href="@{/sushi-web}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" th:href="@{/sushi-web/contact}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" th:href="@{/sushi-web/settings}">Account Settings</a></li>
+                </ul><a class="btn btn-primary ms-md-2" role="button" href="#" th:href="@{/sushi-web/logout}">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" style="color: var(--bs-body-bg);background: #2759a3;">
+                        <h1 class="text-center col-md-12" style="height: 124px;margin: 0px;margin-top: -28px;"><br>Account Settings</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row" style="box-shadow: 17px 16px 6px rgb(187,191,195);font-size: 15px;">
+                        <div class="col">
+                            <h1 class="text-center">Dane osobowe</h1>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr></tr>
+                                    </thead>
+                                    <tbody class="font-monospace" style="font-size: 20px;">
+                                        <tr>
+                                            <td class="col-md-4 text-center" style="padding-top: 231px;">Zdjęcie:</td>
+                                            <td class="text-center"><img class="col-md-6 col-sm-6 rounded-circle d-block mx-auto" src="../static/assets/img/defaultProfilePicture.png" th:src="@{${'img/prof/' + user_details.user_img}}" style="margin-top: 20pt;margin-bottom: 10pt;border-width: 4px;border-style: solid;color: rgb(0,0,0);" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4 text-center">Imię:</td>
+                                            <td th:text="${user_details.name}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4 text-center">Nazwisko:</td>
+                                            <td th:text="${user_details.surname}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4 text-center">Płeć:</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4 text-center">Data urodzenia:</td>
+                                            <td th:text="${user_details.dob}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4 text-center">Narodowość:</td>
+                                            <td  th:text="${user_details.country}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4 text-center">Imię ojca:</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4 text-center">Imię matki:</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4 text-center">PESEL:</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4 text-center">E-mail:</td>
+                                            <td th:text="${email}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4 text-center">Telefon</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4 text-center">Adres zameldowania:</td>
+                                            <td th:text="${user_details.address}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-4 text-center">Adres korespondencji:</td>
+                                            <td th:text="${user_details.address}"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h1 class="text-center">Zmiana hasła</h1>
+                            <div class="text-center" style="margin-top: 10px;margin-bottom: 10px;font-size: 20px;"><input type="text" class="text-center col-md-4 rounded-3" placeholder="Stare hasło:" readonly=""><input type="password" class="text-center col-md-4 rounded-3" placeholder="password"></div>
+                            <div class="text-center" style="margin-top: 10px;margin-bottom: 10px;font-size: 20px;"><input type="text" class="text-center col-md-4 rounded-3" placeholder="Nowe hasło:" readonly=""><input type="password" class="text-center col-md-4 rounded-3" placeholder="password"></div>
+                            <div class="text-center"><button class="btn btn-primary w-50" type="submit" style="margin-top: 18px;margin-bottom: 25px;font-size: 20px;">Send </button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
