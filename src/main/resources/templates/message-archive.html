@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>University-main</title>
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../static/assets/fonts/fontawesome-all.min.css" th:href="@{/assets/fonts/fontawesome-all.min.css}">
+    <link rel="stylesheet" href="../static/assets/css/styles.min.css" th:href="@{/assets/css/styles.min.css}">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="./index.html" th:href="@{index.html}"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"><img id="logo" class="col-md-12 rounded-circle" src="../static/assets/img/logo.jpg" th:src="@{/img/logo.jpg}"></span><span id="logo-title" class="col-md-12 col-sm-12">Wyższa Szkoła Zarządzania i Bankowości</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-5">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#" th:href="@{/sushi-web}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" th:href="@{/sushi-web/contact}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" th:href="@{/sushi-web/settings}">Account Settings</a></li>
+                </ul><a class="btn btn-primary ms-md-2" role="button" href="#" th:href="@{/sushi-web/logout}">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <div class="m-auto">
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" style="color: var(--bs-body-bg);background: #2759a3;">
+                        <h1 class="text-center col-md-12" style="height: 124px;margin: 0px;margin-top: -28px;"><br>Archiwum wiadomości</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" style="padding: 16px;">
+                <div class="col-md-6">
+                    <h2 class="h2" style="text-align: left;border-radius: 4px;border-right-width: 2px;">Wysłane</h2>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="h2" style="text-align: right;border-radius: 4px;border-right-width: 0px;border-right-style: solid;border-left-width: 2px;">Otrzymane</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="table-responsive" th:each="message : ${messages}">
+                                            <table class="table">
+                                                <thead style="border-left-style: solid;">
+                                                <tr th:switch="${message.sender_name}">
+                                                    <th th:case="${username}">
+                                                        <div class="col-md-12">
+                                                            <span>Od:</span>
+                                                            <span style="margin-left: 15px;" th:text="${message.sender_name}">FROM INFO</span>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <span>Do:</span>
+                                                            <span style="margin-left: 15px;" th:text="${message.receiver_name}">ADDRESSED INFO</span>
+                                                        </div>
+                                                    </th>
+                                                    <th th:case="*">
+                                                        <div class="col-md-12">
+                                                            <span>Od:</span>
+                                                            <span style="margin-left: 15px; text-align: right;" th:text="${message.sender_name}">FROM INFO</span>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <span>Do:</span>
+                                                            <span style="margin-left: 15px; text-align: right;" th:text="${message.receiver_name}">ADDRESSED INFO</span>
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td class="fw-bolder" style="background-color: #2759a3; color: white" th:text="${message.message_title}">TITLE</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size: 14px; background-color: #4b85d9; color: white" th:text="${message.body}">MESSAGE TEXT&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size: 12px; background-color: #6a9fec; color: white" th:text="${message.send_date}">DATE</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
